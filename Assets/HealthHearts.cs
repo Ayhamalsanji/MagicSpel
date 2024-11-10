@@ -22,10 +22,12 @@ public class HealthHearts : MonoBehaviour
             case HeartStatus.Empty:
                 heartImage.sprite = emptyHeart;
                 break;
-            case HeartStatus.Hlaf:
+            case HeartStatus.Half:
                 heartImage.sprite = halfHeart;
+                break;
             case HeartStatus.Full:
                 heartImage.sprite = fullHeart;
+                break;
         }
 
     }
