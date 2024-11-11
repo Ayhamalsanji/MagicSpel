@@ -44,7 +44,7 @@ public class HealthHeartBar : MonoBehaviour
 
         }
 
-        hearts = new List<Hea1thHearts>();
+        hearts = new List<HealthHearts>();
     }
 
     // Start is called before the first frame update
