@@ -5,20 +5,23 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public GameObject HeartCounter;
+
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
 
-    public float health, maxHealth;
+    public int health, maxHealth;
 
     private void Start()
     {
         health = maxHealth;
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
         health -= amount;
         OnPlayerDamaged?.Invoke();
+        HeartCounter.GetComponent<heartHealthBar2>().UpdateHealth(health);
 
 
         if (health <= 0)

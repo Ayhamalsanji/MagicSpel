@@ -6,7 +6,7 @@ public class HealthHeartBar : MonoBehaviour
 {
     public GameObject heartPrefab;
     public PlayerHealth playerHealth;
-    List<HealthHearts> hearts = new List<HealthHearts>();
+    List<HealthHeart> hearts = new List<HealthHeart>();
 
     private void OnEnable()
     {
@@ -39,7 +39,7 @@ public class HealthHeartBar : MonoBehaviour
       GameObject newHeart = Instantiate(heartPrefab);
         newHeart.transform.SetParent(transform);
 
-        HealthHearts heartComponent = newHeart.GetComponent<HealthHearts>();
+        HealthHeart heartComponent = newHeart.GetComponent<HealthHeart>();
         heartComponent.SetHeartImage(HeartStatus.Empty);
         hearts.Add(heartComponent);
 
@@ -54,7 +54,7 @@ public class HealthHeartBar : MonoBehaviour
 
         }
 
-        hearts = new List<HealthHearts>();
+        hearts = new List<HealthHeart>();
     }
 
     // Start is called before the first frame update
