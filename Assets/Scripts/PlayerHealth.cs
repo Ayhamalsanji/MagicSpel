@@ -7,17 +7,25 @@ public class PlayerHealth : MonoBehaviour
 {
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
-    public float health, maxHealth;
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    public float health, maxHealth;
+
+    private void Start()
+    {
         health = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(float amount)
     {
-        
+        health -= amount;
+        OnPlayerDamaged?.Invoke();
+
+
+        if (health <= 0)
+        {
+            health = 0;
+            Debug.Log("You're dead");
+            OnPlayerDeath?.Invoke();
+        }
     }
 }

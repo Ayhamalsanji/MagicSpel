@@ -8,6 +8,16 @@ public class HealthHeartBar : MonoBehaviour
     public PlayerHealth playerHealth;
     List<HealthHearts> hearts = new List<HealthHearts>();
 
+    private void OnEnable()
+    {
+        PlayerHealth.OnPlayerDamaged += DrawHearts;
+    }
+
+    private void OnDisable()
+    {
+        PlayerHealth.OnPlayerDamaged += DrawHearts;
+    }
+
     public void DrawHearts()
     {
         ClearHearts();
@@ -44,7 +54,7 @@ public class HealthHeartBar : MonoBehaviour
 
         }
 
-        hearts = new List<Hea1thHearts>();
+        hearts = new List<HealthHearts>();
     }
 
     // Start is called before the first frame update
