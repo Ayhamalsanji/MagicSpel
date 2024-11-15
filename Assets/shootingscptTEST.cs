@@ -1,74 +1,8 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-
-//public class shootingScpt : MonoBehaviour
-//{
-//    public GameObject FireBall;
-//    public float fireBallSpeed = 10f;
-//    public float fireRate = 0.3f;
-//    public int currentShots = 0;
-//    //public bool ShootFireBall;
-//    public float nextFireTime = 0f;
-//    private bool CanCast = true;
-//    public 
-//    // Start is called before the first frame update
-
-
-//    // Update is called once per frame
-//    void ShootFireBall()
-//    {
-
-//        if (FireBall != null)
-//        {
-//            GameObject fireballInstance = Instantiate(FireBall, transform.position, transform.rotation);
-
-//            Rigidbody2D rb = fireballInstance.GetComponent<Rigidbody2D>();
-//            if (rb != null)
-//            {
-//                rb.velocity = transform.right * fireBallSpeed;
-//            }
-
-//        }
-//        else
-//        {
-//            Debug.LogError("Fireball Prefab sakmas");
-
-//        }
-
-
-//        if (Input.GetKeyDown(KeyCode.Space))
-//        {
-//            if (CanCast == true)
-//            {
-
-//                Instantiate(FireBall, this.transform.position, transform.rotation);
-//                CanCast = false;
-//                StartCoroutine(FireRate());
-
-//            }
-//        }
-
-//        IEnumerator FireRate()
-//        {
-
-//            yield return new WaitForSeconds(nextFireTime);
-//            CanCast = true;
-//            yield return null;
-//        }
-
-
-
-//    }
-
-
-
-//} 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootingScpt : MonoBehaviour
+public class ShootingScptTEST : MonoBehaviour
 {
     public GameObject FireBall;           // Referens till eldklotets prefab
     public float fireBallSpeed = 10f;     // Hastigheten på eldklotet

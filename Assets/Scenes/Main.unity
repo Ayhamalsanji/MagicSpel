@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartPrefab: {fileID: 6795773815714881623, guid: 70dea75faa9adf24cbd00533c356f8c7, type: 3}
-  playerHealth: {fileID: 2015555457}
+  playerHealth: {fileID: 0}
 --- !u!114 &1913785576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,11 +923,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2015555455}
+  - component: {fileID: 2015555458}
   - component: {fileID: 2015555454}
   - component: {fileID: 2015555453}
   - component: {fileID: 2015555452}
   - component: {fileID: 2015555456}
-  - component: {fileID: 2015555457}
+  - component: {fileID: 2015555459}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -961,7 +962,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2015555453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1087,7 +1088,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2015555457
+--- !u!114 &2015555458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015555451}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d407ce128f4ff504d8aa2e5536055b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireBall: {fileID: 0}
+  fireBallSpeed: 10
+  fireRate: 0.3
+--- !u!114 &2015555459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1096,12 +1112,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2015555451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 467e8f6b1ab5b904695cf37d8c534892, type: 3}
+  m_Script: {fileID: 11500000, guid: 60b8c3e48641c284facccd33a889e4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeartCounter: {fileID: 0}
-  health: 0
-  maxHealth: 0
+  FireBall: {fileID: 5316873340468283978, guid: 7f4c6b38013d73a4e8b5d85975b2a64c, type: 3}
+  fireBallSpeed: 10
+  fireRate: 0.3
 --- !u!1001 &2038033554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1224,6 +1240,7 @@ GameObject:
   - component: {fileID: 2117595544}
   - component: {fileID: 2117595543}
   - component: {fileID: 2117595545}
+  - component: {fileID: 2117595546}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1310,6 +1327,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac363d55d08c8204dbb9af362e8ec77e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &2117595546
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117595542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
