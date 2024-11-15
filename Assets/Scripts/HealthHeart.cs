@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthHearts : MonoBehaviour
+public class HealthHeart : MonoBehaviour
 {
     public Sprite fullHeart, halfHeart, emptyHeart;
     Image heartImage;
@@ -29,13 +29,6 @@ public class HealthHearts : MonoBehaviour
                 heartImage.sprite = fullHeart;
                 break;
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
 public enum HeartStatus
