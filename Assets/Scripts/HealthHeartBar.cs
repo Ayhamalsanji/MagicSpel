@@ -54,7 +54,11 @@ public class HealthHeartBar : MonoBehaviour
 
         }
 
+<<<<<<< HEAD
+        hearts = new List<HealthHearts>();
+=======
         hearts = new List<HealthHeart>();
+>>>>>>> e4649e1a9b405a86ca040e1bce654b33f119c134
     }
 
     // Start is called before the first frame update
