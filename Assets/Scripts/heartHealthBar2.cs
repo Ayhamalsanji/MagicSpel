@@ -1,32 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class heartHealthBar2 : MonoBehaviour
 {
-    public GameObject[] healthHearts;
+    public GameObject[] healthHearts; // Array of heart GameObjects
 
-    // Start is called before the first frame update
-    void Start()
+    public void UpdateHealth(int playerHealth)
     {
-        
-    }
+        for (int i = 0; i < healthHearts.Length; i++)
+        {
+            var heartChanger = healthHearts[i].GetComponent<HeartSpriteChanger>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+            if (heartChanger == null)
+            {
+                Debug.LogError($"Heart GameObject {healthHearts[i].name} is missing HeartSpriteChanger component!");
+                continue;
+            }
 
-    public void UpdateHealth(int playerhealth)
-    {
-        //If health is more than 4
-        healthHearts[2].GetComponent<HeartSpriteChanger>().ImageUpdate();
-
-        //If health is less than 5 and more than 2
-        //Do something with heart 2
-
-        //If health is less than 3
-        //Do something with heart 1
+            if (playerHealth >= (i + 1) * 2)
+            {
+                // Full heart if health is enough for this heart
+                heartChanger.SetFullHeart();
+            }
+            else if (playerHealth == (i * 2) + 1)
+            {
+                // Half heart if health is exactly halfway
+                heartChanger.SetHalfHeart();
+            }
+            else
+            {
+                // Empty heart otherwise
+                heartChanger.SetEmptyHeart();
+            }
+        }
     }
 }
