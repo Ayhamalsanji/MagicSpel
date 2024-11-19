@@ -1,44 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Security;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HeartSpriteChanger : MonoBehaviour
 {
-    private Image HeartImage;
+    public Sprite fullHeartSprite;
+    public Sprite halfHeartSprite;
+    public Sprite emptyHeartSprite;
 
-    public Sprite HeartImageFull;
-    public Sprite HeartImageHalf;
-    public Sprite HeartImageEmpty;
+    private Image heartImage;
 
-    int index = 2;
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        HeartImage = GetComponent<Image>();
-        ImageUpdate();
+        heartImage = GetComponent<Image>();
+
+        if (heartImage == null)
+        {
+            Debug.LogError($"No Image component found on {gameObject.name}! Please attach one.");
+        }
     }
 
-    // Update is called once per frame
-    public void ImageUpdate()
+    public void SetFullHeart()
     {
-        if (index == 2)
+        if (fullHeartSprite != null)
         {
-            HeartImage.sprite = HeartImageFull;
-            index--;
-        } 
-        
-        else if (index == 1)
-        {
-            HeartImage.sprite = HeartImageHalf;
-            index--;
+            heartImage.sprite = fullHeartSprite;
         }
-
-        else if (index == 0)
+        else
         {
-            HeartImage.sprite = HeartImageEmpty;
+            Debug.LogError($"Full heart sprite is missing on {gameObject.name}!");
+        }
+    }
+
+    public void SetHalfHeart()
+    {
+        if (halfHeartSprite != null)
+        {
+            heartImage.sprite = halfHeartSprite;
+        }
+        else
+        {
+            Debug.LogError($"Half heart sprite is missing on {gameObject.name}!");
+        }
+    }
+
+    public void SetEmptyHeart()
+    {
+        if (emptyHeartSprite != null)
+        {
+            heartImage.sprite = emptyHeartSprite;
+        }
+        else
+        {
+            Debug.LogError($"Empty heart sprite is missing on {gameObject.name}!");
         }
     }
 }
